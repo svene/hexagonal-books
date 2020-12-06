@@ -9,12 +9,17 @@ version '0.1.0'
 
 mainClassName = 'App'
 
+ext {
+    jqwikVersion = '1.3.10'
+}
 dependencies {
     implementation 'com.google.guava:guava:30.0-jre'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     testImplementation 'org.assertj:assertj-core:3.18.1'
+    testImplementation "net.jqwik:jqwik-api:${jqwikVersion}"
+    testRuntimeOnly "net.jqwik:jqwik-engine:${jqwikVersion}"
 }
 
 repositories {
@@ -23,7 +28,13 @@ repositories {
 
 test {
     useJUnitPlatform {
-        includeEngines 'junit-jupiter'
+//        includeEngines "jqwik"
+        includeEngines 'jqwik', 'junit-jupiter'
+//        includeEngines 'jqwik', 'junit-jupiter', 'junit-vintage'
+
+        include '**/*Properties.class'
+        include '**/*Test.class'
+        include '**/*Tests.class'
     }
 }
 
