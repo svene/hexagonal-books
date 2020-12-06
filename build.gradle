@@ -3,6 +3,9 @@ plugins {
     id 'application'
 }
 
+group 'org.svenehrke.example'
+version '0.1.0'
+
 mainClassName = 'App'
 
 dependencies {
