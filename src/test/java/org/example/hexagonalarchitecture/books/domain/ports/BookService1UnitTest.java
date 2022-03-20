@@ -13,7 +13,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class BookServiceUnitTest {
+class BookService1UnitTest {
 
 	public static final long AUTHOR_ID = 200L;
 	public static final long BOOK_ID = 99L;

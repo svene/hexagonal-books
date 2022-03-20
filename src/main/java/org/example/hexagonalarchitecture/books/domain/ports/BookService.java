@@ -2,8 +2,10 @@ package org.example.hexagonalarchitecture.books.domain.ports;
 
 import lombok.AllArgsConstructor;
 import org.example.hexagonalarchitecture.books.domain.model.Book;
+import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
+@Service
 public class BookService {
 
 	private final BookRepository bookRepository;
