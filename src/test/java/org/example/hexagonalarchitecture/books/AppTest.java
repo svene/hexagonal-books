@@ -1,4 +1,7 @@
+package org.example.hexagonalarchitecture.books;
+
 import net.jqwik.api.Example;
+import org.example.hexagonalarchitecture.books.App;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
