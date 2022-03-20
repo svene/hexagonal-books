@@ -1,13 +1,12 @@
 plugins {
     id 'java-library'
-    id 'application'
     id "com.github.ben-manes.versions" version "0.42.0"
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group 'org.svenehrke.example'
 version '0.1.0'
-
-mainClassName = 'App'
 
 ext {
     jqwikVersion = '1.6.5'
@@ -19,28 +18,19 @@ java {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testImplementation 'org.assertj:assertj-core:3.22.0'
-    testImplementation "net.jqwik:jqwik-api:${jqwikVersion}"
-    testRuntimeOnly "net.jqwik:jqwik-engine:${jqwikVersion}"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 repositories {
     mavenCentral()
 }
 
-test {
-    useJUnitPlatform {
-//        includeEngines "jqwik"
-        includeEngines 'jqwik', 'junit-jupiter'
-//        includeEngines 'jqwik', 'junit-jupiter', 'junit-vintage'
-
-        include '**/*Properties.class'
-        include '**/*Test.class'
-        include '**/*Tests.class'
-    }
+tasks.named('test') {
+    useJUnitPlatform()
 }
 
