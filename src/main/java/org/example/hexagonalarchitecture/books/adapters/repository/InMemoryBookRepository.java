@@ -1,5 +1,6 @@
 package org.example.hexagonalarchitecture.books.adapters.repository;
 
+import org.example.hexagonalarchitecture.books.domain.model.AuthorId;
 import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.example.hexagonalarchitecture.books.domain.ports.BookRepository;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,7 @@ public class InMemoryBookRepository implements BookRepository {
 	Map<Long, Book> storage = new HashMap<>();
 
 	@Override
-	public Book save(Long authorId, String title, String content) {
+	public Book save(AuthorId authorId, String title, String content) {
 		Book book = Book.builder()
 			.id(idCounter.getAndIncrement())
 			.authorId(authorId)

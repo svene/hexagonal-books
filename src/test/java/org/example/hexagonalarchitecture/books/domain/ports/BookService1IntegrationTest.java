@@ -1,6 +1,7 @@
 package org.example.hexagonalarchitecture.books.domain.ports;
 
 import org.example.hexagonalarchitecture.books.adapters.repository.InMemoryBookRepository;
+import org.example.hexagonalarchitecture.books.domain.model.AuthorId;
 import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Import(BookService1IntegrationTest.TestConfiguration.class)
 class BookService1IntegrationTest {
 
-	public static final long AUTHOR_ID = 200L;
+	public static final AuthorId AUTHOR_ID = AuthorId.of(200L);
 
 	@Autowired
 	BookRepository repository;

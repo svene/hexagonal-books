@@ -9,7 +9,7 @@ import lombok.Data;
 @Builder
 public class Book {
 	Long id;
-	Long authorId;
+	AuthorId authorId;
 	String title;
 	String content;
 }
