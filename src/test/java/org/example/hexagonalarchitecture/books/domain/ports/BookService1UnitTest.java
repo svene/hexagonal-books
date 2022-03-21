@@ -42,4 +42,14 @@ class BookService1UnitTest {
 		Long id = service.create(AUTHOR_ID, "title", "content");
 		assertThat(id).isEqualTo(BOOK_ID);
 	}
+
+	@Test
+	void getCallsRepository() {
+		when(repository.get(anyLong())).thenReturn(
+			Book.builder().id(BOOK_ID).build()
+		);
+		service.get(BOOK_ID);
+		verify(repository, times(1)).get(BOOK_ID);
+	}
+
 }

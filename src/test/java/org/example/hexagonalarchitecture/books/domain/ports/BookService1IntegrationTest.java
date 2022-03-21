@@ -1,6 +1,7 @@
 package org.example.hexagonalarchitecture.books.domain.ports;
 
 import org.example.hexagonalarchitecture.books.adapters.repository.InMemoryBookRepository;
+import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,15 @@ class BookService1IntegrationTest {
 	void createReturnsIdOfRepositorySave() {
 		Long bookId = service.create(AUTHOR_ID, "title", "content");
 		assertThat(bookId).isEqualTo(1L);
+	}
+
+	@Test
+	void getAfterSave() {
+		Long bookId = service.create(AUTHOR_ID, "title", "content");
+		Book actual = service.get(bookId);
+		assertThat(actual).isEqualTo(
+			Book.builder().id(bookId).authorId(AUTHOR_ID).title("title").content("content").build()
+		);
 	}
 
 	@Configuration

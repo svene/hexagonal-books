@@ -30,4 +30,9 @@ public class InMemoryBookRepository implements BookRepository {
 		storage.put(book.getId(), book);
 		return book;
 	}
+
+	@Override
+	public Book get(Long bookId) {
+		return storage.get(bookId);
+	}
 }
