@@ -1,0 +1,14 @@
+
+###
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+  "title": "myTitle",
+  "content": "book content",
+  "authorId": 200
+}
+
+###
+GET http://localhost:8080/books/1
+Accept: application/json
