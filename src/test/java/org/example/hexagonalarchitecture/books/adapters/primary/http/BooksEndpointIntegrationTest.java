@@ -1,7 +1,7 @@
 package org.example.hexagonalarchitecture.books.adapters.primary.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.hexagonalarchitecture.books.adapters.repository.InMemoryBookRepository;
+import org.example.hexagonalarchitecture.books.adapters.secondary.repository.InMemoryBookRepository;
 import org.example.hexagonalarchitecture.books.domain.ports.BookService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(BooksEndpoint.class)
 @ContextConfiguration(classes = {BooksEndpoint.class, BooksFacade.class, BookService.class, InMemoryBookRepository.class})
-class BooksEndpointTest {
+class BooksEndpointIntegrationTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -51,7 +51,7 @@ class BooksEndpointTest {
 					.content(createRequestBody)
 					.accept(MediaType.APPLICATION_JSON)
 			)
-//			.andDo(print())
+//			.andDo(print()) // just for development
 			.andExpect(status().isCreated())
 			.andExpect(content().json(expectedJsonResponse))
 		;
