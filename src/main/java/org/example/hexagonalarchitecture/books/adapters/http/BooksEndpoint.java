@@ -1,4 +1,4 @@
-package org.example.hexagonalarchitecture.books.adapters.primary.http;
+package org.example.hexagonalarchitecture.books.adapters.http;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

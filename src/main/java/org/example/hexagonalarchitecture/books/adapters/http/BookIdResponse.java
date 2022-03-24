@@ -1,4 +1,4 @@
-package org.example.hexagonalarchitecture.books.adapters.primary.http;
+package org.example.hexagonalarchitecture.books.adapters.http;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

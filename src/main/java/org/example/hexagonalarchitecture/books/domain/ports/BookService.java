@@ -5,6 +5,9 @@ import org.example.hexagonalarchitecture.books.domain.model.AuthorId;
 import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.springframework.stereotype.Service;
 
+/**
+ * Inbound port
+ */
 @AllArgsConstructor
 @Service
 public class BookService {

@@ -1,6 +1,6 @@
 package org.example.hexagonalarchitecture.books.domain.ports;
 
-import org.example.hexagonalarchitecture.books.adapters.secondary.repository.InMemoryBookRepository;
+import org.example.hexagonalarchitecture.books.adapters.repository.InMemoryBookRepository;
 import org.example.hexagonalarchitecture.books.domain.model.AuthorId;
 import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.junit.jupiter.api.Test;

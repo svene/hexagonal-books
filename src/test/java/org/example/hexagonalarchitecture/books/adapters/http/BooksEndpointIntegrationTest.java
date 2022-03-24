@@ -1,7 +1,10 @@
-package org.example.hexagonalarchitecture.books.adapters.primary.http;
+package org.example.hexagonalarchitecture.books.adapters.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.hexagonalarchitecture.books.adapters.secondary.repository.InMemoryBookRepository;
+import org.example.hexagonalarchitecture.books.adapters.http.BookRequest;
+import org.example.hexagonalarchitecture.books.adapters.http.BooksEndpoint;
+import org.example.hexagonalarchitecture.books.adapters.http.BooksFacade;
+import org.example.hexagonalarchitecture.books.adapters.repository.InMemoryBookRepository;
 import org.example.hexagonalarchitecture.books.domain.ports.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

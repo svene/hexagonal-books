@@ -24,7 +24,7 @@ public class ArchitectureTest {
 		;
 	@ArchTest
 	public static final ArchRule httpNotPublic = noClasses()
-		.that().resideInAPackage("..primary.http..").should().bePublic()
+		.that().resideInAPackage("..http..").should().bePublic()
 		;
 
 }
