@@ -1,0 +1,25 @@
+package org.example.hexagonalarchitecture.books.architecture;
+
+import com.tngtech.archunit.core.importer.ImportOption;
+import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.junit.ArchTest;
+import com.tngtech.archunit.lang.ArchRule;
+
+import static com.tngtech.archunit.library.Architectures.onionArchitecture;
+
+@AnalyzeClasses(
+	packages = "org.example.hexagonalarchitecture.books",
+	importOptions = {ImportOption.DoNotIncludeTests.class, ImportOption.DoNotIncludeJars.class}
+)
+public class ArchitectureTest {
+
+	@ArchTest
+	public static final ArchRule verifyOnionArchitecture = onionArchitecture()
+		.adapter("primary-http", "..adapters.primary.http")
+		.adapter("secondary-repository", "..adapters.secondary.repository")
+		.applicationServices("..applicationservices..")
+		.domainModels("..domain.model")
+		.domainServices("..domain.ports")
+		;
+
+}

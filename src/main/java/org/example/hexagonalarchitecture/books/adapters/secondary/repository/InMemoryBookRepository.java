@@ -1,4 +1,4 @@
-package org.example.hexagonalarchitecture.books.adapters.repository;
+package org.example.hexagonalarchitecture.books.adapters.secondary.repository;
 
 import org.example.hexagonalarchitecture.books.domain.model.AuthorId;
 import org.example.hexagonalarchitecture.books.domain.model.Book;
