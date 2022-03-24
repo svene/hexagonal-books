@@ -5,6 +5,7 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.Architectures.onionArchitecture;
 
 @AnalyzeClasses(
@@ -20,6 +21,10 @@ public class ArchitectureTest {
 		.applicationServices("..applicationservices..")
 		.domainModels("..domain.model")
 		.domainServices("..domain.ports")
+		;
+	@ArchTest
+	public static final ArchRule httpNotPublic = noClasses()
+		.that().resideInAPackage("..primary.http..").should().bePublic()
 		;
 
 }
