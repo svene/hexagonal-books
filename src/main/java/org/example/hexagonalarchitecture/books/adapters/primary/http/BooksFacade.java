@@ -5,18 +5,21 @@ import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.example.hexagonalarchitecture.books.domain.ports.BookService;
 import org.springframework.stereotype.Component;
 
+/**
+ * Purpose of Facade: translate 'domain model' to 'api model' and vice versa
+ */
 @AllArgsConstructor
 @Component
-public class BooksFacade {
+class BooksFacade {
 
 	private final BookService service;
 
-	public BookIdResponse create(BookRequest bookRequest) {
+	BookIdResponse create(BookRequest bookRequest) {
 		Long bookId = service.create(bookRequest.authorId(), bookRequest.getTitle(), bookRequest.getContent());
 		return BookIdResponse.of(bookId);
 	}
 
-	public BookResponse get(Long bookId) {
+	BookResponse get(Long bookId) {
 		Book book = service.get(bookId);
 		return BookResponse.of(book);
 	}

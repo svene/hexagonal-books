@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/books")
-public class BooksEndpoint {
+class BooksEndpoint {
 
 	private final BooksFacade facade;
 
@@ -17,7 +17,7 @@ public class BooksEndpoint {
 		consumes = MediaType.APPLICATION_JSON_VALUE,
 		produces = MediaType.APPLICATION_JSON_VALUE
 	)
-	public ResponseEntity<BookIdResponse> create(
+	ResponseEntity<BookIdResponse> create(
 		@RequestBody BookRequest bookRequest
 	) {
 		BookIdResponse result = facade.create(bookRequest);
@@ -25,7 +25,7 @@ public class BooksEndpoint {
 	}
 
 	@GetMapping(value = "{bookId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<BookResponse> get(@PathVariable("bookId") final Long bookId) {
+	ResponseEntity<BookResponse> get(@PathVariable("bookId") final Long bookId) {
 		BookResponse result = facade.get(bookId);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}

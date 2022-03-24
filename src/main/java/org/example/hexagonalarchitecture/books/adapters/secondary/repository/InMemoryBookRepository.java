@@ -36,4 +36,9 @@ public class InMemoryBookRepository implements BookRepository {
 	public Book get(Long bookId) {
 		return storage.get(bookId);
 	}
+
+	public void clear() {
+		this.storage.clear();
+		idCounter.set(1);
+	}
 }

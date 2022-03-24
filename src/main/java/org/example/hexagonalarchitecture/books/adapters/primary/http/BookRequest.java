@@ -5,12 +5,12 @@ import lombok.Getter;
 import org.example.hexagonalarchitecture.books.domain.model.AuthorId;
 
 @Getter
-public class BookRequest {
+class BookRequest {
 	private final String title;
 	private final String content;
 	private final Long authorId;
 
-	public BookRequest(
+	BookRequest(
 		@JsonProperty("title") String title,
 		@JsonProperty("content") String content,
 		@JsonProperty("authorId") Long authorId
@@ -20,7 +20,7 @@ public class BookRequest {
 		this.authorId = authorId;
 	}
 
-	public AuthorId authorId() {
+	AuthorId authorId() {
 		return AuthorId.of(authorId);
 	}
 }
