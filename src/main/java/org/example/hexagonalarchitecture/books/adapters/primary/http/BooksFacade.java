@@ -1,6 +1,7 @@
 package org.example.hexagonalarchitecture.books.adapters.primary.http;
 
 import lombok.AllArgsConstructor;
+import org.example.hexagonalarchitecture.books.domain.model.Book;
 import org.example.hexagonalarchitecture.books.domain.ports.BookService;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +14,10 @@ public class BooksFacade {
 	public BookIdResponse create(BookRequest bookRequest) {
 		Long bookId = service.create(bookRequest.authorId(), bookRequest.getTitle(), bookRequest.getContent());
 		return BookIdResponse.of(bookId);
+	}
+
+	public BookResponse get(Long bookId) {
+		Book book = service.get(bookId);
+		return BookResponse.of(book);
 	}
 }

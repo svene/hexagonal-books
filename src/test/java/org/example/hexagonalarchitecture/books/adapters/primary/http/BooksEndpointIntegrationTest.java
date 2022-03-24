@@ -13,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -41,9 +42,9 @@ class BooksEndpointIntegrationTest {
 	@Test
 	void createBook() throws Exception {
 		String expectedJsonResponse = """
-    		{
+			 		{
 				"id": 1
-    		}
+			 		}
 			""";
 		mockMvc.perform(
 				MockMvcRequestBuilders.post("/books")
@@ -55,6 +56,36 @@ class BooksEndpointIntegrationTest {
 			.andExpect(status().isCreated())
 			.andExpect(content().json(expectedJsonResponse))
 		;
+	}
+
+	@Test
+	void createAndGetBook() throws Exception {
+		mockMvc.perform(
+			MockMvcRequestBuilders.post("/books")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(createRequestBody)
+				.accept(MediaType.APPLICATION_JSON)
+		);
+
+		String expectedJsonResponse = """
+		{
+			"id":1,
+			"authorId":{"value":200},
+			"title":"myTitle",
+			"content":"book content"
+		}
+		""";
+		mockMvc.perform(
+				MockMvcRequestBuilders.get("/books/1")
+					.contentType(MediaType.APPLICATION_JSON)
+					.content(createRequestBody)
+					.accept(MediaType.APPLICATION_JSON)
+			)
+//			.andDo(print()) // just for development
+			.andExpect(status().isOk())
+			.andExpect(content().json(expectedJsonResponse)
+			);
+
 	}
 
 }
