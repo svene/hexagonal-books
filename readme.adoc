@@ -1,0 +1,26 @@
+= Hexagonal Architecture Example
+
+Example using Spring Boot and created in the way
+https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html
+was done.
+
+== Key Takeaways from the blog post
+
+- "Each adapter works on its own datamodel"
+- "I can’t stress it enough that, due to the hexagonal package structure, none of the adapter code needs to be public, as no other code is allowed to depend on it. It is impossible to import it to the domain or other parts of the application thanks to the package-scope access modifier."
+- thoughts on package name 'infrastructure': most likely does not make sense (associates in mind things like security, cache setup, config ...)
+- BookService is a domain service and a port at the same time
+- BookPublisher is domain logic, not a model and not a port
+- ? snapshot pattern (see blog comments)
+- except for package 'domain' (bc. domain classes are public anyway): remove subpackages in order to be able to use the package scope to the maximum. (? rather use separate modules)
+- ? package 'domain' should not contain subpackages 'model' and 'ports' since these are technical names?.
+? Instead it should contain subpackes by domains ?
+- ? package 'domain' should not contain multiple domains since this is a sign that the bounded context of this 'microservice' is too broad. Instead move them to their own bounded context. => No domain subpackages needed
+
+
+
+
+== Links / Further Info
+
+- https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html
+- https://www.baeldung.com/hexagonal-architecture-ddd-spring
