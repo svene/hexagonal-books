@@ -16,8 +16,8 @@ public class ArchitectureTest {
 
 	@ArchTest
 	public static final ArchRule verifyOnionArchitecture = onionArchitecture()
-		.adapter("primary-http", "..adapters.primary.http")
-		.adapter("secondary-repository", "..adapters.secondary.repository")
+		.adapter("http", "..adapters.http")
+		.adapter("repository", "..adapters.repository")
 		.applicationServices("..applicationservices..")
 		.domainModels("..domain.model")
 		.domainServices("..domain.ports")
