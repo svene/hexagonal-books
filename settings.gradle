@@ -1,1 +1,5 @@
 rootProject.name = 'hexagonal-books'
+
+includeBuild 'domain'
+includeBuild 'legacy'
+includeBuild 'app'

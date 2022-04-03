@@ -10,7 +10,7 @@ import static com.tngtech.archunit.library.Architectures.onionArchitecture;
 
 @AnalyzeClasses(
 	packages = "org.example.hexagonalarchitecture.books",
-	importOptions = {ImportOption.DoNotIncludeTests.class, ImportOption.DoNotIncludeJars.class}
+	importOptions = {ImportOption.DoNotIncludeTests.class}
 )
 public class ArchitectureTest {
 

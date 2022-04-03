@@ -1,0 +1,47 @@
+plugins {
+    id 'java-library'
+    id "com.github.ben-manes.versions" version "0.42.0"
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+ext {
+    jqwikVersion = '1.6.5'
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+group 'org.svenehrke.example'
+version '0.1.0'
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.assertj:assertj-core:3.22.0'
+    testImplementation 'com.tngtech.archunit:archunit-junit5:0.23.1'
+    testImplementation 'org.mockito:mockito-core:4.3.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.svenehrke.example:domain:0.1.0'
+    implementation 'org.svenehrke.example:legacy:0.1.0'
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
