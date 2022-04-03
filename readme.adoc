@@ -1,5 +1,9 @@
 = Hexagonal Architecture Example
 
+Original excellent article which got me looking again deeper into the topic:
+
+https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
+
 Example using Spring Boot and created in the way
 https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html
 was done.
@@ -24,3 +28,5 @@ was done.
 
 - https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html
 - https://www.baeldung.com/hexagonal-architecture-ddd-spring
+- https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
+- https://herbertograca.com/2018/07/07/more-than-concentric-layers/
