@@ -1,5 +1,9 @@
 rootProject.name = 'hexagonal-books'
 
 includeBuild 'domain'
-includeBuild 'legacy'
+
+includeBuild 'http-adapter'
+
+includeBuild 'in-memory-repository-adapter'
+
 includeBuild 'app'
