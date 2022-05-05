@@ -4,6 +4,9 @@ task assemble {
 task test {
     dependsOn gradle.includedBuilds*.task(':test')
 }
+task testClasses {
+    dependsOn gradle.includedBuilds*.task(':testClasses')
+}
 task build {
     dependsOn gradle.includedBuilds*.task(':build')
 }
